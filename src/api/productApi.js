@@ -1,23 +1,28 @@
 import fetchClient from "./fetchClient.js";
-import AppConstants from '../appConstants.js';
+import AppConstants from "../appConstants.js";
 
 class ProductApi {
   constructor() {
-    this.resourceName = 'products';
+    this.resourceName = "products";
   }
 
   /**
    * Get a list of posts with pagination, sort, filter supported
-   * @param {object} params 
+   * @param {object} params
    */
-  getAll(params = { _page: AppConstants.DEFAULT_PAGE, _limit: AppConstants.DEFAULT_LIMIT }) {
+  getAll(
+    params = {
+      _page: AppConstants.DEFAULT_PAGE,
+      _limit: AppConstants.DEFAULT_LIMIT,
+    }
+  ) {
     const url = `${AppConstants.API_URL}/${this.resourceName}`;
     return fetchClient.get(url, params);
   }
 
   /**
    * Get a post by id
-   * @param {string} postId 
+   * @param {string} postId
    */
   getById(postId) {
     const url = `${AppConstants.API_URL}/${this.resourceName}/${postId}`;
@@ -26,7 +31,7 @@ class ProductApi {
 
   /**
    * Add a new post
-   * @param {object} post 
+   * @param {object} post
    */
   add(post) {
     const url = `${AppConstants.API_URL}/${this.resourceName}`;
@@ -35,11 +40,11 @@ class ProductApi {
 
   /**
    * Update a post
-   * @param {object} post 
+   * @param {object} post
    */
   update(post) {
     // Require id to process further
-    if (!post.id) throw new Error('Missing id in post object');
+    if (!post.id) throw new Error("Missing id in post object");
 
     const url = `${AppConstants.API_URL}/${this.resourceName}/${post.id}`;
     return fetchClient.patch(url, post);
@@ -47,7 +52,7 @@ class ProductApi {
 
   /**
    * Remove a post by id
-   * @param {object} postId 
+   * @param {object} postId
    */
   remove(postId) {
     const url = `${AppConstants.API_URL}/${this.resourceName}/${postId}`;

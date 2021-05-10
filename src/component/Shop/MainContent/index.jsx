@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { addToCart } from "../../../redux-slide/cartSlide";
 import "./MainContent.css";
 
-MainContent.propTypes = {};
-
 function MainContent(props) {
   const {
     productList,

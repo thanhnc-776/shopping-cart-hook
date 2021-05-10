@@ -1,17 +1,17 @@
-import queryString from 'query-string';
+import queryString from "query-string";
 
 // Base request
 const request = async (url, options = {}) => {
   try {
     // Headers
     const headers = new Headers();
-    headers.set('Content-Type', 'application/json');
+    headers.set("Content-Type", "application/json");
 
     // Merge options
     const requestOptions = {
       ...options,
       headers,
-    }
+    };
 
     // Send request
     const response = await fetch(url, requestOptions);
@@ -29,26 +29,28 @@ const request = async (url, options = {}) => {
     throw error;
   } catch (error) {
     // Just throw current error
-    throw error
+    throw error;
   }
 };
 
 // Get single or plural
 const get = async (url, params) => {
-  const paramsString = params ? `?${queryString.stringify(params)}` : '';
+  const paramsString = params ? `?${queryString.stringify(params)}` : "";
   const requestUrl = `${url}${paramsString}`;
 
-  return  request(requestUrl, { method: 'GET' });
+  return request(requestUrl, { method: "GET" });
 };
 
 // Add new
-const post = async (url, body) => request(url, { method: 'POST', body: JSON.stringify(body) });
+const post = async (url, body) =>
+  request(url, { method: "POST", body: JSON.stringify(body) });
 
 // Update
-const patch = async (url, body) => request(url, { method: 'PATCH', body: JSON.stringify(body) });
+const patch = async (url, body) =>
+  request(url, { method: "PATCH", body: JSON.stringify(body) });
 
 // Remove
-const deleteRequest = async (url) => request(url, { method: 'DELETE' });
+const deleteRequest = async (url) => request(url, { method: "DELETE" });
 
 const fetchClient = {
   get,

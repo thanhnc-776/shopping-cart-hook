@@ -1,8 +1,6 @@
 import React from "react";
 import "./Banner.css";
 
-Banner.propTypes = {};
-
 function Banner(props) {
   return (
     <div className="banner">

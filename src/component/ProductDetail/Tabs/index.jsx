@@ -3,13 +3,10 @@ import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 import Description from "./Description";
 import Information from "./Information";
 import Review from "./Review";
-import './Tabs.css';
-
-Tabs.propTypes = {};
+import "./Tabs.css";
 
 function Tabs(props) {
   const { match, product } = props;
-
   return (
     <div>
       <div className="tabs_section_container">
@@ -18,35 +15,38 @@ function Tabs(props) {
             <div className="col">
               <div className="tabs_container">
                 <ul className="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-                    <li className="tab" data-active-tab="tab_1">
+                  <li className="tab" data-active-tab="tab_1">
                     <NavLink
-                        exact
-                        to={{
-                            pathname:`${match.url}/description`,
-                            product: product
-                            // productDescription : productDescription,
-                        }}
-                        className="tab"
-                        activeClassName="active"
-                    ><span>Description</span>
+                      exact
+                      to={{
+                        pathname: `${match.url}/description`,
+                        product: product,
+                        // productDescription : productDescription,
+                      }}
+                      className="tab"
+                      activeClassName="active"
+                    >
+                      <span>Description</span>
                     </NavLink>
-                        </li>
-                    <li className="tab" data-active-tab="tab_2">
+                  </li>
+                  <li className="tab" data-active-tab="tab_2">
                     <NavLink
-                        to={`${match.url}/information`}
-                        className="tab"
-                        activeClassName="active"
-                    ><span>Additional Information </span>
+                      to={`${match.url}/information`}
+                      className="tab"
+                      activeClassName="active"
+                    >
+                      <span>Additional Information </span>
                     </NavLink>
-                        </li>
-                    <li className="tab" data-active-tab="tab_3">
+                  </li>
+                  <li className="tab" data-active-tab="tab_3">
                     <NavLink
-                        to={`${match.url}/reviews`}
-                        className="tab"
-                        activeClassName="active"
-                    ><span> Reviews </span>
-                    </NavLink>   
-                        </li>
+                      to={`${match.url}/reviews`}
+                      className="tab"
+                      activeClassName="active"
+                    >
+                      <span> Reviews </span>
+                    </NavLink>
+                  </li>
                 </ul>
               </div>
             </div>
